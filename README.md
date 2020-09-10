@@ -1,4 +1,6 @@
-![Test](https://github.com/HarunRRayhan/lux-client-management-system/workflows/Test/badge.svg)
+<p align="center">
+<a href="https://github.com/HarunRRayhan/lux-client-management-system"><img src="https://github.com/HarunRRayhan/lux-client-management-system/workflows/Build/badge.svg" alt="Build Status"></a>
+</p>
 # Lux - The Ultimate Client Management System
 
 Lux is a powerful client management system. Based on Laravel. It's all-in-one solution for managing your clients. You can send invoices, manage projects & tasks, keep track of projects progress. It's a customer relationship management (CRM) and project management system (PMS) too.

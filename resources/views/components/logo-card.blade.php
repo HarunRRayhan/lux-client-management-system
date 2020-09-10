@@ -6,7 +6,7 @@
     </svg>
 
     <div class="flex items-center ml-2" style="color: {{$fillColor}}">
-        <h1 class="font-bold text-3xl">Lux</h1>
+        <h2 class="font-bold text-3xl">Lux</h2>
     </div>
 
 </div>

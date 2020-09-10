@@ -19,7 +19,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.js" defer></script>
 </head>
-<body class="font-sans leading-none text-gray-700 antialiased">
+<body class="font-sans text-gray-700 antialiased">
 <div>
     <div class="flex flex-col">
         <div class="h-screen flex flex-col">
@@ -35,7 +35,9 @@
                 </div>
                 <div
                     class="bg-white border-b w-full p-4 md:py-0 md:px-12 text-sm md:text-md flex justify-between items-center">
-                    <div class="mt-1 mr-4">Test</div>
+                    <div class="mr-4">
+                        <h1 class="font-bold text-2xl">{{ $pagename }}</h1>
+                    </div>
                     <div class="">
                         <!-- Primary Navigation Menu -->
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -145,7 +147,6 @@
                 </div>
 
                 <div class="flex-1 px-4 py-8 md:p-12 overflow-y-auto">
-                    <h1 class="mb-8 font-bold text-3xl">{{ $pagename }}</h1>
                     <!-- Page Content -->
                     <main>
                         {{ $slot }}

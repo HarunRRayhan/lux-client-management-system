@@ -13,7 +13,7 @@ class AppLayout extends Component
      *
      * @param $pagename
      */
-    public function __construct( $pagename )
+    public function __construct($pagename)
     {
         $this->pagename = $pagename;
     }
@@ -25,6 +25,6 @@ class AppLayout extends Component
      */
     public function render()
     {
-        return view( 'layouts.app' );
+        return view('layouts.app');
     }
 }

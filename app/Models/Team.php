@@ -9,7 +9,7 @@ use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
 
 /**
- * App\Models\Team
+ * App\Models\Team.
  *
  * @property int $id
  * @property int $user_id

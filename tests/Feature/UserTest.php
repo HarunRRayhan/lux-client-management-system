@@ -2,11 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Models\Team;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Validation\Rule;
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -20,6 +18,6 @@ class UserTest extends TestCase
     public function it_should_have_valid_avatar_image(): void
     {
         $user = User::factory()->create();
-        $this->assertTrue( getimagesize( $user->profile_photo_url ) > 0, 'Valid Profile Photo' );
+        $this->assertTrue(getimagesize($user->profile_photo_url) > 0, 'Valid Profile Photo');
     }
 }

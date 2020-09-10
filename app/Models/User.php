@@ -11,7 +11,7 @@ use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
 /**
- * App\Models\User
+ * App\Models\User.
  *
  * @property int $id
  * @property string $first_name
@@ -107,7 +107,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Full Name Attribute
+     * Full Name Attribute.
      *
      * @return string
      */
@@ -123,6 +123,6 @@ class User extends Authenticatable
      */
     protected function defaultProfilePhotoUrl()
     {
-        return 'https://ui-avatars.com/api/?name=' . urlencode( $this->full_name ) . '&color=FFFFFF&background=6875F5';
+        return 'https://ui-avatars.com/api/?name='.urlencode($this->full_name).'&color=FFFFFF&background=6875F5';
     }
 }

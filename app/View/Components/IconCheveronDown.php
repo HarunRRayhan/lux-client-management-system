@@ -13,6 +13,6 @@ class IconCheveronDown extends Component
      */
     public function render()
     {
-        return view( 'components.icons.cheveron-down' );
+        return view('components.icons.cheveron-down');
     }
 }

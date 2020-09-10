@@ -19,25 +19,25 @@ class CreateNewUser implements CreatesNewUsers
      *
      * @return \App\Models\User
      */
-    public function create( array $input )
+    public function create(array $input)
     {
-        Validator::make( $input, [
-            'first_name' => [ 'required', 'string', 'max:255' ],
-            'last_name'  => [ 'required', 'string', 'max:255' ],
-            'email'      => [ 'required', 'string', 'email', 'max:255', 'unique:users' ],
-            'password'   => [ 'required', 'string', new Password, 'confirmed' ],
-        ] )->validate();
+        Validator::make($input, [
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name'  => ['required', 'string', 'max:255'],
+            'email'      => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password'   => ['required', 'string', new Password, 'confirmed'],
+        ])->validate();
 
-        return DB::transaction( function () use ( $input ) {
-            return tap( User::create( [
+        return DB::transaction(function () use ($input) {
+            return tap(User::create([
                 'first_name' => $input['first_name'],
                 'last_name'  => $input['last_name'],
                 'email'      => $input['email'],
-                'password'   => Hash::make( $input['password'] ),
-            ] ), function ( User $user ) {
-                $this->createTeam( $user );
-            } );
-        } );
+                'password'   => Hash::make($input['password']),
+            ]), function (User $user) {
+                $this->createTeam($user);
+            });
+        });
     }
 
     /**
@@ -47,12 +47,12 @@ class CreateNewUser implements CreatesNewUsers
      *
      * @return void
      */
-    protected function createTeam( User $user )
+    protected function createTeam(User $user)
     {
-        $user->ownedTeams()->save( Team::forceCreate( [
+        $user->ownedTeams()->save(Team::forceCreate([
             'user_id'       => $user->id,
             'name'          => "{$user->first_name}'s Team",
             'personal_team' => true,
-        ] ) );
+        ]));
     }
 }

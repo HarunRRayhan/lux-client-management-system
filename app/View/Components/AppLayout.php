@@ -6,13 +6,25 @@ use Illuminate\View\Component;
 
 class AppLayout extends Component
 {
+    public string $pagename;
+
     /**
-     * Get the view / contents that represents the component.
+     * Create a new component instance.
      *
-     * @return \Illuminate\View\View
+     * @param $pagename
+     */
+    public function __construct( $pagename )
+    {
+        $this->pagename = $pagename;
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     *
+     * @return \Illuminate\View\View|string
      */
     public function render()
     {
-        return view('layouts.app');
+        return view( 'layouts.app' );
     }
 }

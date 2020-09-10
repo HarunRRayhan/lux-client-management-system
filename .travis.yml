@@ -1,3 +1,5 @@
+dist: precise
+
 language: php
 
 php:
@@ -7,6 +9,10 @@ env:
   matrix:
     - COMPOSER_FLAGS="--prefer-lowest"
     - COMPOSER_FLAGS=""
+
+cache:
+  directories:
+    - $HOME/.composer/cache
 
 before_script:
   - travis_retry composer update ${COMPOSER_FLAGS}

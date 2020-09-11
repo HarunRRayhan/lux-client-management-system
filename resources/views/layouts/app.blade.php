@@ -142,7 +142,7 @@
             </div>
 
             <div class="flex flex-grow overflow-hidden">
-                <div class="bg-indigo-800 flex-shrink-0 w-56 p-12 hidden md:block overflow-y-auto">
+                <div class="bg-lux-800 flex-shrink-0 w-56 p-12 hidden md:block overflow-y-auto">
                     <p>Menu</p>
                 </div>
 

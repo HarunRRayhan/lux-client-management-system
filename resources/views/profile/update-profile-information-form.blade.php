@@ -78,8 +78,6 @@
             Saved.
         </x-jet-action-message>
 
-        <x-jet-button>
-            Save
-        </x-jet-button>
+        <button class="flex items-center btn-lux" type="submit">Update Profile</button>
     </x-slot>
 </x-form-section>

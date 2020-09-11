@@ -76,37 +76,6 @@
 
                                             <div class="border-t border-gray-100"></div>
 
-                                            <!-- Team Management -->
-                                            @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                                                <div class="block px-4 py-2 text-xs text-gray-400">
-                                                    Manage Team
-                                                </div>
-
-                                                <!-- Team Settings -->
-                                                <x-jet-dropdown-link href="/teams/{{ Auth::user()->currentTeam->id }}">
-                                                    Team Settings
-                                                </x-jet-dropdown-link>
-
-                                                @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                                                    <x-jet-dropdown-link href="/teams/create">
-                                                        Create New Team
-                                                    </x-jet-dropdown-link>
-                                                @endcan
-
-                                                <div class="border-t border-gray-100"></div>
-
-                                                <!-- Team Switcher -->
-                                                <div class="block px-4 py-2 text-xs text-gray-400">
-                                                    Switch Teams
-                                                </div>
-
-                                                @foreach (Auth::user()->allTeams() as $team)
-                                                    <x-jet-switchable-team :team="$team"/>
-                                                @endforeach
-
-                                                <div class="border-t border-gray-100"></div>
-                                        @endif
-
                                         <!-- Authentication -->
                                             <form method="POST" action="{{ route('logout') }}">
                                                 @csrf

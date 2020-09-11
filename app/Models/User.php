@@ -11,7 +11,7 @@ use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
 /**
- * App\Models\User.
+ * App\Models\User
  *
  * @property int $id
  * @property string $first_name
@@ -30,28 +30,24 @@ use Laravel\Sanctum\HasApiTokens;
  * @property-read string $profile_photo_url
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Team[] $ownedTeams
- * @property-read int|null $owned_teams_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Team[] $teams
- * @property-read int|null $teams_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
- * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt( $value )
- * @method static \Illuminate\Database\Eloquent\Builder|User whereCurrentTeamId( $value )
- * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail( $value )
- * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt( $value )
- * @method static \Illuminate\Database\Eloquent\Builder|User whereFirstName( $value )
- * @method static \Illuminate\Database\Eloquent\Builder|User whereId( $value )
- * @method static \Illuminate\Database\Eloquent\Builder|User whereLastName( $value )
- * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword( $value )
- * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePhotoPath( $value )
- * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken( $value )
- * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorRecoveryCodes( $value )
- * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorSecret( $value )
- * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCurrentTeamId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereFirstName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLastName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePhotoPath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorRecoveryCodes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorSecret($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class User extends Authenticatable
@@ -59,7 +55,6 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
-    use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
 

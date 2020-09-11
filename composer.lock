@@ -1112,16 +1112,16 @@
         },
         {
             "name": "laravel/fortify",
-            "version": "v1.0.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/fortify.git",
-                "reference": "f29ed3f63d6da006fb540e2894e4aa387ccabde2"
+                "reference": "1a0b999843386a72b966795dbcfc45adb6946512"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/fortify/zipball/f29ed3f63d6da006fb540e2894e4aa387ccabde2",
-                "reference": "f29ed3f63d6da006fb540e2894e4aa387ccabde2",
+                "url": "https://api.github.com/repos/laravel/fortify/zipball/1a0b999843386a72b966795dbcfc45adb6946512",
+                "reference": "1a0b999843386a72b966795dbcfc45adb6946512",
                 "shasum": ""
             },
             "require": {
@@ -1166,20 +1166,20 @@
                 "auth",
                 "laravel"
             ],
-            "time": "2020-09-08T12:54:41+00:00"
+            "time": "2020-09-10T19:19:32+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v8.0.0",
+            "version": "v8.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "43bea00fd27c76c01fd009e46725a54885f4d2a5"
+                "reference": "2cf573991b1438393affdc94fd6129dcc42fd9fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/43bea00fd27c76c01fd009e46725a54885f4d2a5",
-                "reference": "43bea00fd27c76c01fd009e46725a54885f4d2a5",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2cf573991b1438393affdc94fd6129dcc42fd9fc",
+                "reference": "2cf573991b1438393affdc94fd6129dcc42fd9fc",
                 "shasum": ""
             },
             "require": {
@@ -1329,20 +1329,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-09-08T15:15:32+00:00"
+            "time": "2020-09-10T21:38:58+00:00"
         },
         {
             "name": "laravel/jetstream",
-            "version": "v1.0.2",
+            "version": "v1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "65ce8824a8a5a631a9cc02595655b8699bf4b086"
+                "reference": "4c2d09efd487a73e910a162aa459fcd2abec6519"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/65ce8824a8a5a631a9cc02595655b8699bf4b086",
-                "reference": "65ce8824a8a5a631a9cc02595655b8699bf4b086",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/4c2d09efd487a73e910a162aa459fcd2abec6519",
+                "reference": "4c2d09efd487a73e910a162aa459fcd2abec6519",
                 "shasum": ""
             },
             "require": {
@@ -1391,7 +1391,7 @@
                 "laravel",
                 "tailwind"
             ],
-            "time": "2020-09-09T02:24:29+00:00"
+            "time": "2020-09-10T19:46:55+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -1756,16 +1756,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.1.2",
+            "version": "v2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "43bfe091c909b7baf1e9fae7decbbe19ec7dd6ad"
+                "reference": "a91505905a65f58955657d43f0348d97c43e72fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/43bfe091c909b7baf1e9fae7decbbe19ec7dd6ad",
-                "reference": "43bfe091c909b7baf1e9fae7decbbe19ec7dd6ad",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/a91505905a65f58955657d43f0348d97c43e72fc",
+                "reference": "a91505905a65f58955657d43f0348d97c43e72fc",
                 "shasum": ""
             },
             "require": {
@@ -1817,7 +1817,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-09T03:29:38+00:00"
+            "time": "2020-09-10T19:37:42+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -1964,16 +1964,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.39.1",
+            "version": "2.39.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "7af467873250583cc967a59ee9df29fabab193c1"
+                "reference": "326efde1bc09077a26cb77f6e2e32e13f06c27f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/7af467873250583cc967a59ee9df29fabab193c1",
-                "reference": "7af467873250583cc967a59ee9df29fabab193c1",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/326efde1bc09077a26cb77f6e2e32e13f06c27f2",
+                "reference": "326efde1bc09077a26cb77f6e2e32e13f06c27f2",
                 "shasum": ""
             },
             "require": {
@@ -2049,7 +2049,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-04T13:11:37+00:00"
+            "time": "2020-09-10T12:16:42+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2795,16 +2795,16 @@
         },
         {
             "name": "ramsey/collection",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/collection.git",
-                "reference": "044184884e3c803e4cbb6451386cb71562939b18"
+                "reference": "24d93aefb2cd786b7edd9f45b554aea20b28b9b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/collection/zipball/044184884e3c803e4cbb6451386cb71562939b18",
-                "reference": "044184884e3c803e4cbb6451386cb71562939b18",
+                "url": "https://api.github.com/repos/ramsey/collection/zipball/24d93aefb2cd786b7edd9f45b554aea20b28b9b1",
+                "reference": "24d93aefb2cd786b7edd9f45b554aea20b28b9b1",
                 "shasum": ""
             },
             "require": {
@@ -2860,7 +2860,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-11T00:57:21+00:00"
+            "time": "2020-09-10T20:58:17+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -5769,16 +5769,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.10.12",
+            "version": "1.10.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "a6cc92b39c796ec3fb9a360f9c0e578afc2fc96d"
+                "reference": "47c841ba3b2d3fc0b4b13282cf029ea18b66d78b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/a6cc92b39c796ec3fb9a360f9c0e578afc2fc96d",
-                "reference": "a6cc92b39c796ec3fb9a360f9c0e578afc2fc96d",
+                "url": "https://api.github.com/repos/composer/composer/zipball/47c841ba3b2d3fc0b4b13282cf029ea18b66d78b",
+                "reference": "47c841ba3b2d3fc0b4b13282cf029ea18b66d78b",
                 "shasum": ""
             },
             "require": {
@@ -5859,20 +5859,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-08T20:58:51+00:00"
+            "time": "2020-09-09T09:46:34+00:00"
         },
         {
             "name": "composer/semver",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "9787c20e39dfeea673665abee0679c73ba67105d"
+                "reference": "114f819054a2ea7db03287f5efb757e2af6e4079"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/9787c20e39dfeea673665abee0679c73ba67105d",
-                "reference": "9787c20e39dfeea673665abee0679c73ba67105d",
+                "url": "https://api.github.com/repos/composer/semver/zipball/114f819054a2ea7db03287f5efb757e2af6e4079",
+                "reference": "114f819054a2ea7db03287f5efb757e2af6e4079",
                 "shasum": ""
             },
             "require": {
@@ -5934,7 +5934,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-08T20:42:08+00:00"
+            "time": "2020-09-09T09:34:06+00:00"
         },
         {
             "name": "composer/spdx-licenses",

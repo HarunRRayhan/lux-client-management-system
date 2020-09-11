@@ -1,4 +1,4 @@
-<x-jet-action-section>
+<x-action-section>
     <x-slot name="title">
         Two Factor Authentication
     </x-slot>
@@ -8,13 +8,13 @@
     </x-slot>
 
     <x-slot name="content">
-        <h3 class="text-lg font-medium text-gray-900">
+        <h4 class="text-md font-medium text-gray-900">
             @if ($this->enabled)
                 You have enabled two factor authentication.
             @else
                 You have not enabled two factor authentication.
             @endif
-        </h3>
+        </h4>
 
         <div class="mt-3 max-w-xl text-sm text-gray-600">
             <p>
@@ -72,4 +72,4 @@
             @endif
         </div>
     </x-slot>
-</x-jet-action-section>
+</x-action-section>

@@ -1,4 +1,4 @@
-<x-jet-form-section submit="updateProfileInformation">
+<x-form-section submit="updateProfileInformation">
     <x-slot name="title">
         Profile Information
     </x-slot>
@@ -10,7 +10,7 @@
     <x-slot name="form">
         <!-- Profile Photo -->
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-            <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
+            <div x-data="{photoName: null, photoPreview: null}" class="col-span-6">
                 <!-- Profile Photo File Input -->
                 <input type="file" class="hidden"
                             wire:model="photo"
@@ -47,7 +47,7 @@
         @endif
 
         <!-- Name -->
-        <div class="flex col-span-6 sm:col-span-4">
+        <div class="flex col-span-6">
             <!-- First Name -->
             <div class="flex-1 mr-1">
                 <x-jet-label for="first_name" value="First Name" />
@@ -82,4 +82,4 @@
             Save
         </x-jet-button>
     </x-slot>
-</x-jet-form-section>
+</x-form-section>

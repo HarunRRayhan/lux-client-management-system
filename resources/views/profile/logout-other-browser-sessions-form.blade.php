@@ -1,4 +1,4 @@
-<x-jet-action-section>
+<x-action-section>
     <x-slot name="title">
         Browser Sessions
     </x-slot>
@@ -91,4 +91,4 @@
             </x-slot>
         </x-jet-dialog-modal>
     </x-slot>
-</x-jet-action-section>
+</x-action-section>

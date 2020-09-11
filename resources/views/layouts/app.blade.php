@@ -111,7 +111,7 @@
             </div>
 
             <div class="flex flex-grow overflow-hidden">
-                <div class="bg-lux-800 flex-shrink-0 w-56 py-5 hidden md:block overflow-y-auto">
+                <div class="bg-lux-800 flex-shrink-0 w-56 hidden md:block overflow-y-auto">
                     <x-nav-menu />
                 </div>
 

@@ -9,6 +9,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * App\Models\User
@@ -27,27 +28,34 @@ use Laravel\Sanctum\HasApiTokens;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read string $full_name
+ * @property-read bool $is_super_admin
  * @property-read string $profile_photo_url
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Permission[] $permissions
+ * @property-read int|null $permissions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Role[] $roles
+ * @property-read int|null $roles_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|User permission( $permissions )
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
- * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereCurrentTeamId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereFirstName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereLastName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePhotoPath($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorRecoveryCodes($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorSecret($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User role( $roles, $guard = null )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCurrentTeamId( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereFirstName( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereId( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLastName( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePhotoPath( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorRecoveryCodes( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorSecret( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt( $value )
  * @mixin \Eloquent
  */
 class User extends Authenticatable
@@ -57,6 +65,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -111,6 +120,11 @@ class User extends Authenticatable
         return "{$this->first_name} {$this->last_name}";
     }
 
+    public function getIsSuperAdminAttribute(): bool
+    {
+        return (bool) $this->roles->where( 'super_admin', true )->count();
+    }
+
     /**
      * Get the default profile photo URL if no profile photo has been uploaded.
      *
@@ -118,6 +132,6 @@ class User extends Authenticatable
      */
     protected function defaultProfilePhotoUrl()
     {
-        return 'https://ui-avatars.com/api/?name='.urlencode($this->full_name).'&color=FFFFFF&background=6875F5';
+        return 'https://ui-avatars.com/api/?name=' . urlencode( $this->full_name ) . '&color=FFFFFF&background=6875F5';
     }
 }

@@ -7,6 +7,7 @@
 
     <title>{{ get_page_title($pagename) }}</title>
 
+    <x-favicons />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
 
@@ -14,7 +15,6 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     @livewireStyles
-    @bukStyles
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.js" defer></script>
@@ -111,8 +111,8 @@
             </div>
 
             <div class="flex flex-grow overflow-hidden">
-                <div class="bg-lux-800 flex-shrink-0 w-56 p-12 hidden md:block overflow-y-auto">
-                    <p>Menu</p>
+                <div class="bg-lux-800 flex-shrink-0 w-56 py-5 hidden md:block overflow-y-auto">
+                    <x-nav-menu />
                 </div>
 
                 <div class="flex-1 px-4 py-8 md:p-12 overflow-y-auto">
@@ -130,6 +130,5 @@
 @stack('modals')
 
 @livewireScripts
-@bukScripts
 </body>
 </html>

@@ -122,7 +122,7 @@ class User extends Authenticatable
 
     public function getIsSuperAdminAttribute(): bool
     {
-        return (bool) $this->roles->where( 'super_admin', true )->count();
+        return (bool) $this->roles()->where( 'super_admin', true )->count();
     }
 
     /**

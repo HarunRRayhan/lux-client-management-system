@@ -18,4 +18,9 @@ class RolesTest extends TestCase
         $this->assertTrue( $roles->count() > 0 );
     }
 
+    public function testHasASuperAdminRole()
+    {
+        $superAdminRole = Role::where( 'super_admin', true )->count();
+        $this->assertTrue( $superAdminRole > 0 );
+    }
 }

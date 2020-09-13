@@ -1,3 +1,3 @@
 <x-app-layout pagename="Add Company">
-    <p>Create Company</p>
+    <livewire:companies.create />
 </x-app-layout>

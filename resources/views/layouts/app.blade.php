@@ -7,9 +7,10 @@
 
     <title>{{ get_page_title($pagename) }}</title>
 
-    <x-favicons />
+    <x-favicons/>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="https://unpkg.com/trix@1.2.3/dist/trix.css" rel="stylesheet"/>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -76,7 +77,7 @@
 
                                             <div class="border-t border-gray-100"></div>
 
-                                        <!-- Authentication -->
+                                            <!-- Authentication -->
                                             <form method="POST" action="{{ route('logout') }}">
                                                 @csrf
 
@@ -112,7 +113,7 @@
 
             <div class="flex flex-grow overflow-hidden">
                 <div class="bg-lux-800 flex-shrink-0 w-56 hidden md:block overflow-y-auto">
-                    <x-nav-menu />
+                    <x-nav-menu/>
                 </div>
 
                 <div class="flex-1 px-4 py-8 md:p-12 overflow-y-auto">
@@ -130,5 +131,6 @@
 @stack('modals')
 
 @livewireScripts
+<script src="https://unpkg.com/trix@1.2.3/dist/trix.js"></script>
 </body>
 </html>

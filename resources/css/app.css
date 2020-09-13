@@ -6,3 +6,7 @@
 
 /* Utilities */
 @import 'tailwindcss/utilities';
+
+span.trix-button-group.trix-button-group--file-tools {
+    visibility: hidden;
+}

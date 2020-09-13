@@ -34,19 +34,32 @@ class CompanyTest extends TestCase
     public function testNormalUserCantAccessCompany()
     {
         $user     = User::factory()->create();
-        $response = $this->actingAs( $user )->get( route( 'companies.create' ) );
+        $response = $this->actingAs( $user )->get( route( 'clients.companies.create' ) );
         $response->assertStatus( 403 );
     }
 
-//    public function testNormalUserCantAddACompany()
-//    {
-//        $user        = User::factory()->create();
-//        $testCompany = [
-//            'name' => 'Test Company'
-//        ];
-//        $response    = $this->actingAs( $user )->post( '/companies', $testCompany );
-//        $response->assertStatus( 403 );
-//
-//        $this->assertDatabaseMissing( 'companies', $testCompany );
-//    }
+    public function testAUserCanViewCompanyIfHasPermission()
+    {
+        $user = User::factory()->create();
+        $user->givePermissionTo( 'create companies' );
+        $response = $this->actingAs( $user )->get( route( 'clients.companies.create' ) );
+        $response->assertStatus( 200 );
+    }
+
+    public function testSuperAdminCanViewCompany()
+    {
+        $user = User::factory()->create();
+        $user->assignRole( 'super-admin' );
+        $response = $this->actingAs( $user )->get( route( 'clients.companies.create' ) );
+        $response->assertStatus( 200 );
+    }
+
+    public function testSeeCreateCompanyComponent()
+    {
+        $user = User::factory()->create();
+        $user->assignRole( 'super-admin' );
+        $this->actingAs( $user )
+             ->get( route( 'clients.companies.create' ) )
+             ->assertSeeLivewire( 'companies.create' );
+    }
 }

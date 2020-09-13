@@ -23,9 +23,11 @@ Route::middleware( [ 'auth:sanctum', 'verified' ] )->group( function () {
         return view( 'dashboard' );
     } )->name( 'dashboard' );
 
-    Route::resource( '/companies', CompanyController::class )->except( [
-        'index',
-        'store'
-    ] );
+    Route::name( 'clients' )
+         ->resource( '/companies', CompanyController::class )
+         ->except( [
+             'index',
+             'store'
+         ] );
 } );
 

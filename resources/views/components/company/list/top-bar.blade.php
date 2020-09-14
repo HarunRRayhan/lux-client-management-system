@@ -6,7 +6,7 @@
                 type="text"
                 name="search"
                 placeholder="Search…"
-                class="relative w-full px-6 py-3 rounded-r focus:shadow-outline"
+                class="relative w-full px-6 py-3 rounded focus:shadow-outline"
             ></div>
         <button
             type="button"
@@ -14,5 +14,13 @@
         >Reset
         </button>
     </div>
-    <a href="http://demo.inertiajs.com/contacts/create" class="btn-indigo"><span>Create</span> <span
-            class="hidden md:inline">Contact</span></a></div>
+    <a
+        href="{{route('clients.companies.create')}}"
+        class="btn-lux"
+    >
+        <span>Add</span>
+        <span
+            class="hidden md:inline"
+        >Company</span>
+    </a>
+</div>

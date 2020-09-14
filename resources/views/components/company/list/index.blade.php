@@ -6,7 +6,6 @@
         <table class="w-full whitespace-no-wrap">
             <x-company.list.head/>
             @each('components.company.list.item', $companies, 'company', 'components.company.list.empty')
-
         </table>
     </div>
 

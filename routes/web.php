@@ -26,7 +26,9 @@ Route::middleware( [ 'auth:sanctum', 'verified' ] )->group( function () {
     Route::name( 'clients' )
          ->resource( '/companies', CompanyController::class )
          ->except( [
-             'store'
+             'store',
+             'destroy',
+             'update'
          ] );
 } );
 

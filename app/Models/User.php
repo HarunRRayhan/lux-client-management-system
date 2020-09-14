@@ -59,6 +59,8 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorSecret($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $current_company_id
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCurrentCompanyId($value)
  */
 class User extends Authenticatable
 {

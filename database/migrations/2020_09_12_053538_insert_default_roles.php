@@ -20,7 +20,8 @@ class InsertDefaultRoles extends Migration
         Permission::create( [ 'name' => 'add users' ] );
         Permission::create( [ 'name' => 'edit users' ] );
         Permission::create( [ 'name' => 'delete users' ] );
-        Permission::create( [ 'name' => 'create companies' ] );
+
+        Permission::create( [ 'name' => 'view companies' ] );
         Permission::create( [ 'name' => 'add companies' ] );
         Permission::create( [ 'name' => 'edit companies' ] );
         Permission::create( [ 'name' => 'delete companies' ] );

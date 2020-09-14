@@ -31,17 +31,32 @@ class CompanyTest extends TestCase
         $this->assertSame( $company->address->id, $address->id );
     }
 
-    public function testNormalUserCantAccessCompany()
+    public function testNormalUserCantViewCompanies()
+    {
+        $user     = User::factory()->create();
+        $response = $this->actingAs( $user )->get( route( 'clients.companies.index' ) );
+        $response->assertStatus( 403 );
+    }
+
+    public function testNormalUserCantAccessAddCompanyForm()
     {
         $user     = User::factory()->create();
         $response = $this->actingAs( $user )->get( route( 'clients.companies.create' ) );
         $response->assertStatus( 403 );
     }
 
-    public function testAUserCanViewCompanyIfHasPermission()
+    public function testUserCanSeeCompaniesListIfHasPermission()
     {
         $user = User::factory()->create();
-        $user->givePermissionTo( 'create companies' );
+        $user->givePermissionTo( 'view companies' );
+        $response = $this->actingAs( $user )->get( route( 'clients.companies.index' ) );
+        $response->assertStatus( 200 );
+    }
+
+    public function testAUserCanSeeAddCompanyFormIfHasPermission()
+    {
+        $user = User::factory()->create();
+        $user->givePermissionTo( 'add companies' );
         $response = $this->actingAs( $user )->get( route( 'clients.companies.create' ) );
         $response->assertStatus( 200 );
     }
@@ -54,12 +69,21 @@ class CompanyTest extends TestCase
         $response->assertStatus( 200 );
     }
 
-    public function testSeeCreateCompanyComponent()
+    public function testSeeAddCompanyFormComponent()
     {
         $user = User::factory()->create();
         $user->assignRole( 'super-admin' );
         $this->actingAs( $user )
              ->get( route( 'clients.companies.create' ) )
              ->assertSeeLivewire( 'companies.create' );
+    }
+
+    public function testSeeCompaniesListComponent()
+    {
+        $user = User::factory()->create();
+        $user->assignRole( 'super-admin' );
+        $this->actingAs( $user )
+             ->get( route( 'clients.companies.index' ) )
+             ->assertSeeLivewire( 'companies.index' );
     }
 }

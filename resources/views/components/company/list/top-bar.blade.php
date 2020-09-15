@@ -1,4 +1,4 @@
-@props(['checked'])
+@props(['checked', 'search'])
 
 <div class="mb-6 flex justify-between items-center">
     <div class="flex items-center w-full max-w-md mr-4">
@@ -25,10 +25,11 @@
         <div class="flex w-full bg-white shadow rounded">
             <input
                 autocomplete="off"
-                type="text"
+                type="search"
                 name="search"
                 placeholder="Search…"
                 class="relative w-full px-6 py-3 rounded focus:shadow-outline"
+                wire:model.debounce.650ms="search"
             >
         </div>
     </div>

@@ -1,7 +1,7 @@
-@props(['companies', 'deleting', 'checked'])
+@props(['companies', 'deleting', 'checked', 'search'])
 
 <div>
-    <x-company.list.top-bar :checked="$checked"/>
+    <x-company.list.top-bar :checked="$checked" :search="$search"/>
     <div class="bg-white rounded shadow overflow-x-auto">
         <table
             class="w-full whitespace-no-wrap"
@@ -16,5 +16,5 @@
         {{$companies->links()}}
     </div>
 
-    <x-company.list.delete-item :company="$deleting" />
+    <x-company.list.delete-item :company="$deleting"/>
 </div>

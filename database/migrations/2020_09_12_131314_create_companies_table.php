@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateCompaniesTable extends Migration
 {
@@ -23,6 +24,13 @@ class CreateCompaniesTable extends Migration
             $table->text( 'terms' )->nullable();
             $table->timestamps();
         } );
+
+        // Full Text Search
+        DB::statement( '
+            create fulltext index companies_fulltext_index
+            on companies(name)
+            with parser ngram
+        ' );
     }
 
     /**

@@ -16,27 +16,27 @@ class InsertDefaultRoles extends Migration
     public function up()
     {
         // create permissions
-        Permission::create( [ 'name' => 'view users' ] );
-        Permission::create( [ 'name' => 'add users' ] );
-        Permission::create( [ 'name' => 'edit users' ] );
+        Permission::create( [ 'name' => 'read users' ] );
+        Permission::create( [ 'name' => 'create users' ] );
+        Permission::create( [ 'name' => 'update users' ] );
         Permission::create( [ 'name' => 'delete users' ] );
 
-        Permission::create( [ 'name' => 'view companies' ] );
-        Permission::create( [ 'name' => 'add companies' ] );
-        Permission::create( [ 'name' => 'edit companies' ] );
+        Permission::create( [ 'name' => 'read companies' ] );
+        Permission::create( [ 'name' => 'create companies' ] );
+        Permission::create( [ 'name' => 'update companies' ] );
         Permission::create( [ 'name' => 'delete companies' ] );
 
         // create roles and assign existing permissions
         $role0 = Role::create( [ 'name' => 'super-admin', 'super_admin' => true ] );
 
         $role1 = Role::create( [ 'name' => 'admin' ] );
-        $role1->givePermissionTo( 'add users', 'view users', 'edit users', 'delete users' );
+        $role1->givePermissionTo( 'create users', 'read users', 'update users', 'delete users' );
 
         $role2 = Role::create( [ 'name' => 'staff' ] );
-        $role2->givePermissionTo( 'add users', 'view users', 'edit users', 'delete users' );
+        $role2->givePermissionTo( 'create users', 'read users', 'update users', 'delete users' );
 
         $role3 = Role::create( [ 'name' => 'support' ] );
-        $role3->givePermissionTo( 'add users', 'view users', 'edit users', 'delete users' );
+        $role3->givePermissionTo( 'create users', 'read users', 'update users', 'delete users' );
 
         $role4 = Role::create( [ 'name' => 'client' ] );
     }

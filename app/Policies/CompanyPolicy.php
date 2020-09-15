@@ -19,7 +19,7 @@ class CompanyPolicy
      */
     public function viewAny( User $user )
     {
-        return $user->hasPermissionTo( 'view companies' );
+        return $user->hasPermissionTo( 'read companies' );
     }
 
     /**
@@ -44,7 +44,7 @@ class CompanyPolicy
      */
     public function create( User $user )
     {
-        return $user->hasPermissionTo( 'add companies' );
+        return $user->hasPermissionTo( 'create companies' );
     }
 
     /**

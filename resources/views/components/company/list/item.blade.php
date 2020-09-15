@@ -57,9 +57,11 @@
     <td class="border-t w-px">
         <a
             tabindex="-1"
-            href="{{route('clients.companies.show', $company)}}"
+            href="#"
             class="pl-1 pr-4 py-4 flex justify-center group"
             title="Delete Company"
+            wire:click.prevent="confirmCompanyDeletion({{$company}})"
+            wire:loading.attr="disabled"
         >
             <x-icons.trash class="block w-5 h-5 fill-gray-600 group-hover:fill-red-600"/>
         </a>

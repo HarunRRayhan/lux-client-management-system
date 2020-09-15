@@ -1,16 +1,6 @@
 <?php
-/**
- * @author HarunRRayhan/HRXPlugins
- * @url http://hrxplugins.com/
- * @version 1.0
- * File: HasCompanyForm.php
- * @FileVersion: 1.0
- * Created On: 14/9/20:12:29 pm 09/14/2020
- * Updated On: 14/9/20:12:29 pm 09/14/2020
- * @package: @awesome-logo-slider-pro
- */
 
-namespace App\Http\Livewire\Concerns;
+namespace App\Http\Livewire\Companies\Concerns;
 
 
 trait HasCompanyForm
@@ -28,6 +18,7 @@ trait HasCompanyForm
     public $mobile;
     public $name;
     public $state;
+
     protected array $rules = [
         'name'    => 'required|string|max:256',
         'website' => 'nullable|url|max:256',

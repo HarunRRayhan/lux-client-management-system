@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Companies;
 
-use App\Http\Livewire\Concerns\HasCompanyForm;
+use App\Http\Livewire\Companies\Concerns\HasCompanyForm;
 use App\Models\Address;
 use App\Models\Company;
 use Illuminate\View\View;

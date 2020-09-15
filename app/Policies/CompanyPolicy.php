@@ -57,7 +57,7 @@ class CompanyPolicy
      */
     public function update( User $user, Company $company )
     {
-        //
+        return $user->hasPermissionTo( 'update companies' );
     }
 
     /**

@@ -16,7 +16,7 @@
     </td>
     <td class="border-t">
         <a
-            href="{{route('clients.companies.show', $company)}}"
+            href="{{route('clients.companies.edit', $company)}}"
             class="px-1 py-4 flex items-center group"
             title="Edit Company"
         >

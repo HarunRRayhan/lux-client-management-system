@@ -26,11 +26,13 @@ class CreateCompaniesTable extends Migration
         } );
 
         // Full Text Search
-        DB::statement( '
-            create fulltext index companies_fulltext_index
-            on companies(name)
-            with parser ngram
-        ' );
+        if ( 'sqlite' !== DB::getDefaultConnection() ) {
+            DB::statement( '
+                create fulltext index companies_fulltext_index
+                on companies(name)
+                with parser ngram
+            ' );
+        }
     }
 
     /**

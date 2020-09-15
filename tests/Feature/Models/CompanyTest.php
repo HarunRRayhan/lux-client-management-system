@@ -38,6 +38,14 @@ class CompanyTest extends TestCase
         $response->assertStatus( 403 );
     }
 
+    public function testSuperAdminCanViewCompanies()
+    {
+        $user = User::factory()->create();
+        $user->assignRole( 'super-admin' );
+        $response = $this->actingAs( $user )->get( route( 'clients.companies.index' ) );
+        $response->assertStatus( 200 );
+    }
+
     public function testNormalUserCantAccessAddCompanyForm()
     {
         $user     = User::factory()->create();
@@ -48,16 +56,34 @@ class CompanyTest extends TestCase
     public function testUserCanSeeCompaniesListIfHasPermission()
     {
         $user = User::factory()->create();
-        $user->givePermissionTo( 'view companies' );
+        $user->givePermissionTo( 'read companies' );
         $response = $this->actingAs( $user )->get( route( 'clients.companies.index' ) );
         $response->assertStatus( 200 );
     }
 
+
     public function testAUserCanSeeAddCompanyFormIfHasPermission()
     {
         $user = User::factory()->create();
-        $user->givePermissionTo( 'add companies' );
+        $user->givePermissionTo( 'create companies' );
         $response = $this->actingAs( $user )->get( route( 'clients.companies.create' ) );
+        $response->assertStatus( 200 );
+    }
+
+    public function testNormalUserCantAccessEditCompanyForm()
+    {
+        $user     = User::factory()->create();
+        $company  = Company::factory()->create();
+        $response = $this->actingAs( $user )->get( route( 'clients.companies.edit', $company ) );
+        $response->assertStatus( 403 );
+    }
+
+    public function testUserCanAccessEditCompanyFormIfHasPermission()
+    {
+        $user = User::factory()->create();
+        $user->givePermissionTo( 'update companies' );
+        $company  = Company::factory()->create();
+        $response = $this->actingAs( $user )->get( route( 'clients.companies.edit', $company ) );
         $response->assertStatus( 200 );
     }
 
@@ -85,5 +111,15 @@ class CompanyTest extends TestCase
         $this->actingAs( $user )
              ->get( route( 'clients.companies.index' ) )
              ->assertSeeLivewire( 'companies.index' );
+    }
+
+    public function testSeeEditCompanyComponent()
+    {
+        $user    = User::factory()->create();
+        $company = Company::factory()->create();
+        $user->assignRole( 'super-admin' );
+        $this->actingAs( $user )
+             ->get( route( 'clients.companies.edit', $company ) )
+             ->assertSeeLivewire( 'companies.edit' );
     }
 }

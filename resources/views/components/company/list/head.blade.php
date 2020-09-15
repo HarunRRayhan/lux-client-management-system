@@ -1,5 +1,8 @@
 <tr class="text-left font-bold">
-    <th class="pl-4 pr-1 pt-6 pb-4 w-6">View</th>
+    <th class="pl-4 pr-2 pt-6 pb-4 w-6">
+        &nbsp;
+    </th>
+    <th class="px-1 pt-6 pb-4 w-6">View</th>
     <th class="px-1 pt-6 pb-4 w-6">Edit</th>
     <th class="px-6 pt-6 pb-4">Company Name</th>
     <th class="px-6 pt-6 pb-4">City</th>

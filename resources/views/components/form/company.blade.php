@@ -1,3 +1,5 @@
+@props(['company' => null])
+
 <x-slot name="form">
     <!-- Name -->
     <div class="col-span-6 sm:col-span-4">
@@ -124,12 +126,16 @@
         <!-- Country -->
         <div class="flex-1 mr-1">
             <x-jet-label for="country" value="Country"/>
-            <input
-                type="text"
-                id="country"
-                class="form-input rounded-md shadow-sm mt-1 block w-full @error('country') border-red-400 @enderror"
-                wire:model.defer="country"
+            <select
+                class="w-full form-select mt-1 @error('country') border-red-400 @enderror"
+                wire:model="country"
             >
+                @foreach(get_countries() as $country)
+                    <option value="{{$country}}"
+                            @if (optional($company)->country === $country) selected @endif
+                    >{{$country}}</option>
+                @endforeach
+            </select>
             <x-jet-input-error for="country" class="mt-2"/>
         </div>
 

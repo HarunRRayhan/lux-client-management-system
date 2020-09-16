@@ -35,7 +35,9 @@ class Edit extends Component
 
     public function render()
     {
-        return view( 'livewire.companies.edit' );
+        return view( 'livewire.companies.edit', [
+            'company' => $this->company
+        ] );
     }
 
     protected function setCompany(): Edit

@@ -10,7 +10,7 @@
             Update your company information.
         </x-slot>
 
-        <x-form.company/>
+        <x-form.company :company="$company"/>
 
         <x-slot name="actions">
             <button class="flex items-center btn-lux" type="submit">Update Company</button>

@@ -132,5 +132,6 @@
 
 @livewireScripts
 <script src="https://unpkg.com/trix@1.2.3/dist/trix.js"></script>
+@stack('scripts')
 </body>
 </html>

@@ -1,6 +1,6 @@
 @if (session()->has('success'))
     <div
-        {{$attributes->merge(['class'=>'mb-8 flex items-center justify-between bg-green-400 rounded max-w-3xl'])}} x-data="{show: true}"
+        {{$attributes->merge(['class'=>'mb-3 flex items-center justify-between bg-green-400 rounded max-w-3xl'])}} x-data="{show: true}"
         x-show="show"
     >
         <div class="flex items-center">

@@ -28,7 +28,8 @@ class Edit extends Component
         $this->company->update( $this->getCompanyInputs() );
         $this->company->address->update( $this->getAddressInputs() );
 
-        $this->emit( 'companyUpdated' );
+        $this->emit( 'companyupdated' );
+        $this->emit( 'success', 'This is the message' );
         session()->flash( 'success', 'Company updated successfully' );
     }
 

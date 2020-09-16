@@ -13,7 +13,7 @@
 
         <x-slot name="actions">
             <x-jet-action-message class="mr-3" on="companyUpdated">
-                Updated.
+                Updated company successfully.
             </x-jet-action-message>
 
             <button class="flex items-center btn-lux" type="submit">Update Company</button>

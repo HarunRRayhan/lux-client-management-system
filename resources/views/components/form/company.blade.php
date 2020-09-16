@@ -155,9 +155,15 @@
         <div class="">
             <input id="terms" type="hidden" name="terms" wire:model.defer="terms">
             <div class="editor" wire:ignore>
-                <trix-editor input="terms" class="h-64 w-full overflow-x-scroll"></trix-editor>
+                <trix-editor
+                    input="terms"
+                    class="h-64 w-full overflow-x-scroll formatted-content"
+                    x-data
+                    x-on:trix-change="$dispatch('input', event.target.value)"
+                    wire:model.defer="terms"
+                    wire:key="terms"
+                ></trix-editor>
             </div>
-            <div class="" x-text="$wire.terms" x-data></div>
             <x-jet-input-error for="terms" class="mt-2"/>
         </div>
     </div>

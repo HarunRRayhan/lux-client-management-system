@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Companies;
 
 use App\Http\Livewire\Companies\Concerns\HasCompanyForm;
+use App\Models\Address;
 use App\Models\Company;
 use Livewire\Component;
 
@@ -23,7 +24,12 @@ class Edit extends Component
     public function updateCompany()
     {
         $this->validate();
-        dd( $this->terms );
+
+        $this->company->update( $this->getCompanyInputs() );
+        $this->company->address->update( $this->getAddressInputs() );
+
+        $this->emit( 'companyUpdated' );
+        session()->flash( 'success', 'Company updated successfully' );
     }
 
     public function render()

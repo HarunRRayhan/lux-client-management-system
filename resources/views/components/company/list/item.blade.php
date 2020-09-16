@@ -5,19 +5,19 @@
         <input type="checkbox" value="{{$company->id}}" wire:model="checked">
         </span>
     </td>
-    <td class="border-t">
-        <a
-            href="{{route('clients.companies.show', $company)}}"
-            class="px-1 py-4 flex items-center group"
-            title="View Company"
-        >
-            <x-icons.view class="w-5 h-5 fill-gray-600 group-hover:fill-green-600"/>
-        </a>
-    </td>
+{{--    <td class="border-t">--}}
+{{--        <a--}}
+{{--            href="{{route('clients.companies.show', $company)}}"--}}
+{{--            class="px-1 py-4 flex items-center group"--}}
+{{--            title="View Company"--}}
+{{--        >--}}
+{{--            <x-icons.view class="w-5 h-5 fill-gray-600 group-hover:fill-green-600"/>--}}
+{{--        </a>--}}
+{{--    </td>--}}
     <td class="border-t">
         <a
             href="{{route('clients.companies.edit', $company)}}"
-            class="px-1 py-4 flex items-center group"
+            class="px-2 py-4 flex items-center group"
             title="Edit Company"
         >
             <x-icons.edit class="w-5 h-5 fill-gray-600 group-hover:fill-lux-600"/>

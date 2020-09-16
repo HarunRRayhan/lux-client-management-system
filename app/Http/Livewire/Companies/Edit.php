@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Companies;
 
+use App\Http\Livewire\Companies\Concerns\Deletion;
 use App\Http\Livewire\Companies\Concerns\HasCompanyForm;
 use App\Models\Address;
 use App\Models\Company;
@@ -10,6 +11,7 @@ use Livewire\Component;
 class Edit extends Component
 {
     use HasCompanyForm;
+    use Deletion;
 
     public ?Company $company;
 
@@ -38,6 +40,12 @@ class Edit extends Component
         return view( 'livewire.companies.edit', [
             'company' => $this->company
         ] );
+    }
+
+    public function deleteCompany( ?Company $company = null )
+    {
+        $this->deleteAction( $company );
+        $this->redirect( route( 'clients.companies.index' ) );
     }
 
     protected function setCompany(): Edit

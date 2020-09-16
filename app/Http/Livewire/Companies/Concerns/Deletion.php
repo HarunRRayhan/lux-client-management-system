@@ -23,11 +23,18 @@ trait Deletion
 
     public function deleteCompany( ?Company $company = null )
     {
+        $this->deleteAction( $company );
+    }
+
+    protected function deleteAction( ?Company $company = null )
+    {
         if ( $company ) {
             $company->delete();
         }
 
         $this->confirmingCompanyDeletion = false;
         $this->deletingCompany           = null;
+
+        session()->flash( 'success', 'Company Deleted Successfully' );
     }
 }

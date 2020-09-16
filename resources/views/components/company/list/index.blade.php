@@ -1,6 +1,8 @@
 @props(['companies', 'deleting', 'checked', 'search'])
 
 <div>
+    <x-pop-notifications/>
+
     <x-company.list.top-bar :checked="$checked" :search="$search"/>
     <div class="bg-white rounded shadow overflow-x-auto">
         <table

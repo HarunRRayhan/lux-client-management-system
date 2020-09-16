@@ -1,4 +1,7 @@
 <div>
+    <x-breadcrumb
+        links="{{route('clients.companies.index')}}|Clients,{{route('clients.companies.index')}}|Companies"
+        title="{{$company->name}}"/>
     <x-pop-notifications/>
 
     <x-form-section submit="updateCompany" class="max-w-3xl">

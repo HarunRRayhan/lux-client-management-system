@@ -1,5 +1,9 @@
 <div>
     <x-pop-notifications/>
+    <x-breadcrumb
+        links="{{route('clients.companies.index')}}|Clients,{{route('clients.companies.index')}}|Companies"
+        title="Create"/>
+    <x-pop-notifications/>
     <x-form-section submit="addCompany" class="max-w-3xl">
         <x-slot name="title">
             Company Information

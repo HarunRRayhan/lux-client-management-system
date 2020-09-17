@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,25 +43,25 @@ use Spatie\Permission\Traits\HasRoles;
  * @property-read int|null $tokens_count
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|User permission($permissions)
+ * @method static \Illuminate\Database\Eloquent\Builder|User permission( $permissions )
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
- * @method static \Illuminate\Database\Eloquent\Builder|User role($roles, $guard = null)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereCurrentTeamId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereFirstName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereLastName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePhotoPath($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorRecoveryCodes($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorSecret($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User role( $roles, $guard = null )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCurrentTeamId( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereFirstName( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereId( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLastName( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePhotoPath( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorRecoveryCodes( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorSecret( $value )
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt( $value )
  * @mixin \Eloquent
  * @property string|null $current_company_id
- * @method static \Illuminate\Database\Eloquent\Builder|User whereCurrentCompanyId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCurrentCompanyId( $value )
  */
 class User extends Authenticatable
 {
@@ -145,5 +146,10 @@ class User extends Authenticatable
     public function address(): MorphOne
     {
         return $this->morphOne( Address::class, 'addressable' );
+    }
+
+    public function company(): HasOne
+    {
+        return $this->hasOne( Company::class );
     }
 }

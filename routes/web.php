@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,13 @@ Route::middleware( [ 'auth:sanctum', 'verified' ] )->group( function () {
     Route::get( '/dashboard', function () {
         return view( 'dashboard' );
     } )->name( 'dashboard' );
+
+    Route::resource( '/clients', ClientController::class )
+         ->except( [
+             'store',
+             'destroy',
+             'update'
+         ] );
 
     Route::name( 'clients' )
          ->resource( '/companies', CompanyController::class )

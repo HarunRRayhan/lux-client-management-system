@@ -82,7 +82,7 @@ class CompanyTest extends TestCase
     {
         $user = User::factory()->create();
         $user->givePermissionTo( 'update companies' );
-        $company  = Company::factory()->create();
+        $company  = Company::factory()->hasAddress( 1 )->create();
         $response = $this->actingAs( $user )->get( route( 'clients.companies.edit', $company ) );
         $response->assertStatus( 200 );
     }
@@ -104,7 +104,7 @@ class CompanyTest extends TestCase
              ->assertSeeLivewire( 'companies.create' );
     }
 
-    public function testSeeCompaniesListComponent()
+    public function testSuperAdminSeeCompaniesListComponent()
     {
         $user = User::factory()->create();
         $user->assignRole( 'super-admin' );
@@ -116,7 +116,7 @@ class CompanyTest extends TestCase
     public function testSeeEditCompanyComponent()
     {
         $user    = User::factory()->create();
-        $company = Company::factory()->create();
+        $company = Company::factory()->hasAddress( 1 )->create();
         $user->assignRole( 'super-admin' );
         $this->actingAs( $user )
              ->get( route( 'clients.companies.edit', $company ) )

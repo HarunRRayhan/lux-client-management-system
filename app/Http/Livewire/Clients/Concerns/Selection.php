@@ -21,6 +21,7 @@ trait Selection
     {
         if ( $this->checked ) {
             User::role( 'client' )->whereIn( 'id', $this->checked )->delete();
+            session()->flash('success', 'Selected clients deleted!');
         }
 
         $this->confirmingSelectedClientsDeletion = false;

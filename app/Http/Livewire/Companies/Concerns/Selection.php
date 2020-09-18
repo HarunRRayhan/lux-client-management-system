@@ -22,6 +22,7 @@ trait Selection
     {
         if ( $this->checked ) {
             Company::whereIn( 'id', $this->checked )->delete();
+            session()->flash( 'success', 'Selected comapnies deleted!' );
         }
 
         $this->confirmingSelectedCompaniesDeletion = false;

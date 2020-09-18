@@ -53,9 +53,44 @@ class ClientTest extends TestCase
     public function testUserCantSeeClientsListComponent()
     {
         $user = User::factory()->create();
-        $user->assignRole( 'super-admin' );
         $this->actingAs( $user )
              ->get( route( 'clients.index' ) )
              ->assertDontSeeLivewire( 'clients.index' );
+    }
+
+    public function testAUseCanSeeClientsListComponentIfHasPermission()
+    {
+        $user = User::factory()->create();
+        $user->givePermissionTo( 'read users' );
+        $this->actingAs( $user )
+             ->get( route( 'clients.index' ) )
+             ->assertSeeLivewire( 'clients.index' );
+    }
+
+    public function testSuperAdminCanSeeClientsListComponent()
+    {
+        $user = User::factory()->create();
+        $user->assignRole( 'super-admin' );
+        $this->actingAs( $user )
+             ->get( route( 'clients.index' ) )
+             ->assertSeeLivewire( 'clients.index' );
+    }
+
+    public function testClientShowingOnList()
+    {
+        $user = User::factory()->create();
+        $user->givePermissionTo( 'read users' );
+        $client = User::factory()->create();
+        $client->assignRole( 'client' );
+        $this->actingAs( $user )->get( route( 'clients.index' ) )->assertSee( $client->full_name );
+    }
+
+    public function testSeeClientCompanyOnList()
+    {
+        $user = User::factory()->create();
+        $user->givePermissionTo( 'read users' );
+        $client = User::factory()->has( Company::factory()->hasAddress() )->create();
+        $client->assignRole( 'client' );
+        $this->actingAs( $user )->get( route( 'clients.index' ) )->assertSee( $client->company->name );
     }
 }

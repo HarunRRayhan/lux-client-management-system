@@ -25,6 +25,15 @@ class CreateUsersTable extends Migration
             $table->text( 'profile_photo_path' )->nullable();
             $table->timestamps();
         } );
+
+        // Full Text Search
+        if ( 'sqlite' !== DB::getDefaultConnection() ) {
+            DB::statement( '
+                create fulltext index users_fulltext_index
+                on users(first_name, last_name, email)
+                with parser ngram
+            ' );
+        }
     }
 
     /**

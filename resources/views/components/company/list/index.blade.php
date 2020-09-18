@@ -1,5 +1,4 @@
 @props(['companies', 'deleting', 'checked', 'search'])
-
 <div>
     <x-pop-notifications/>
 

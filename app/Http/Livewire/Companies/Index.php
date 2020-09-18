@@ -21,8 +21,8 @@ class Index extends Component
 
     public function render()
     {
-        return view( 'livewire.clients.index', [
-            'clients'  => Company::query()
+        return view( 'livewire.companies.index', [
+            'companies'  => Company::query()
                                  ->with( 'address' )
                                  ->when( $this->search, function ( Builder $query, $search ) {
                                      $query->selectRaw( '*, match(name) against (? in BOOLEAN MODE) as score', [ $search ] )

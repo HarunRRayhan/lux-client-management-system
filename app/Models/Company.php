@@ -33,6 +33,9 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
  * @method static \Illuminate\Database\Eloquent\Builder|Company whereUpdatedAt( $value )
  * @method static \Illuminate\Database\Eloquent\Builder|Company whereVatNumber( $value )
  * @method static \Illuminate\Database\Eloquent\Builder|Company whereWebsite( $value )
+ * @property int|null $user_id
+ * @property-read \App\Models\User|null $owner
+ * @method static \Illuminate\Database\Eloquent\Builder|Company whereUserId($value)
  */
 class Company extends Model
 {

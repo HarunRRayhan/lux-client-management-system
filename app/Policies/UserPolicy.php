@@ -43,7 +43,7 @@ class UserPolicy
      */
     public function create( User $user )
     {
-        //
+        return $user->hasPermissionTo( 'create users' );
     }
 
     /**

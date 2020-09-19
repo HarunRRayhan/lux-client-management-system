@@ -1112,21 +1112,22 @@
         },
         {
             "name": "laravel/fortify",
-            "version": "v1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/fortify.git",
-                "reference": "a255ce7e12601eb2b4972397c9f94a3e4ca13d32"
+                "reference": "5026913a54586dc5fb9d4aae68a2e3d4790f9d96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/fortify/zipball/a255ce7e12601eb2b4972397c9f94a3e4ca13d32",
-                "reference": "a255ce7e12601eb2b4972397c9f94a3e4ca13d32",
+                "url": "https://api.github.com/repos/laravel/fortify/zipball/5026913a54586dc5fb9d4aae68a2e3d4790f9d96",
+                "reference": "5026913a54586dc5fb9d4aae68a2e3d4790f9d96",
                 "shasum": ""
             },
             "require": {
                 "bacon/bacon-qr-code": "^2.0",
                 "ext-json": "*",
+                "illuminate/support": "^8.0",
                 "php": "^7.3",
                 "pragmarx/google2fa": "^7.0|^8.0"
             },
@@ -1166,20 +1167,20 @@
                 "auth",
                 "laravel"
             ],
-            "time": "2020-09-14T18:51:28+00:00"
+            "time": "2020-09-18T21:26:32+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v8.4.0",
+            "version": "v8.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1c57ab5e375d0a897c22b29e8352453be514131e"
+                "reference": "5a748eecae35fd453e0b1e4d4b6f4fadf0d3e7ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1c57ab5e375d0a897c22b29e8352453be514131e",
-                "reference": "1c57ab5e375d0a897c22b29e8352453be514131e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5a748eecae35fd453e0b1e4d4b6f4fadf0d3e7ac",
+                "reference": "5a748eecae35fd453e0b1e4d4b6f4fadf0d3e7ac",
                 "shasum": ""
             },
             "require": {
@@ -1329,7 +1330,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-09-16T16:13:13+00:00"
+            "time": "2020-09-18T21:27:11+00:00"
         },
         {
             "name": "laravel/jetstream",
@@ -1756,16 +1757,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.2.4",
+            "version": "v2.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "b1f5eae5ef5f5942d8d334b4ecb718bac580454f"
+                "reference": "ffaa43e02e9b9ae56c8ae16a438b48844f6e9147"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/b1f5eae5ef5f5942d8d334b4ecb718bac580454f",
-                "reference": "b1f5eae5ef5f5942d8d334b4ecb718bac580454f",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/ffaa43e02e9b9ae56c8ae16a438b48844f6e9147",
+                "reference": "ffaa43e02e9b9ae56c8ae16a438b48844f6e9147",
                 "shasum": ""
             },
             "require": {
@@ -1817,7 +1818,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-17T17:38:03+00:00"
+            "time": "2020-09-18T13:55:17+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -7342,16 +7343,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.1.10",
+            "version": "9.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "5134e2a65ec48e2f7126d12f1503a9889c660bdf"
+                "reference": "c9394cb9d07ecfa9351b96f2e296bad473195f4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/5134e2a65ec48e2f7126d12f1503a9889c660bdf",
-                "reference": "5134e2a65ec48e2f7126d12f1503a9889c660bdf",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/c9394cb9d07ecfa9351b96f2e296bad473195f4d",
+                "reference": "c9394cb9d07ecfa9351b96f2e296bad473195f4d",
                 "shasum": ""
             },
             "require": {
@@ -7411,7 +7412,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-18T05:25:29+00:00"
+            "time": "2020-09-19T05:29:17+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",

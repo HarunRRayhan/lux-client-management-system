@@ -13,8 +13,8 @@ class Create extends Component
 
     public function render(): View
     {
-        return view( 'livewire.clients.create', [
-            'companies' => Company::whereDoesntHave( 'owner' )->get(),
-        ] );
+        return view('livewire.clients.create', [
+            'companies' => Company::whereDoesntHave('owner')->get(),
+        ]);
     }
 }

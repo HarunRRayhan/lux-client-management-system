@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ClientController extends Controller
@@ -21,9 +20,9 @@ class ClientController extends Controller
      */
     public function index(): View
     {
-        $this->authorize( 'read users' );
+        $this->authorize('read users');
 
-        return view( 'client.list' );
+        return view('client.list');
     }
 
     /**
@@ -34,11 +33,10 @@ class ClientController extends Controller
      */
     public function create(): View
     {
-        $this->authorize( 'create users' );
+        $this->authorize('create users');
 
-        return view( 'client.create' );
+        return view('client.create');
     }
-
 
     /**
      * Display the specified resource.
@@ -47,7 +45,7 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show( User $user )
+    public function show(User $user)
     {
         //
     }
@@ -60,12 +58,12 @@ class ClientController extends Controller
      * @return View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function edit( User $client )
+    public function edit(User $client)
     {
-        $this->authorize( 'update users' );
+        $this->authorize('update users');
 
-        return view( 'client.edit', [
-            'client' => $client
-        ] );
+        return view('client.edit', [
+            'client' => $client,
+        ]);
     }
 }

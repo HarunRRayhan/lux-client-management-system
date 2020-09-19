@@ -17,9 +17,9 @@ class CompanyPolicy
      *
      * @return mixed
      */
-    public function viewAny( User $user )
+    public function viewAny(User $user)
     {
-        return $user->hasPermissionTo( 'read companies' );
+        return $user->hasPermissionTo('read companies');
     }
 
     /**
@@ -30,7 +30,7 @@ class CompanyPolicy
      *
      * @return mixed
      */
-    public function view( User $user, Company $company )
+    public function view(User $user, Company $company)
     {
         //
     }
@@ -42,9 +42,9 @@ class CompanyPolicy
      *
      * @return mixed
      */
-    public function create( User $user )
+    public function create(User $user)
     {
-        return $user->hasPermissionTo( 'create companies' );
+        return $user->hasPermissionTo('create companies');
     }
 
     /**
@@ -55,9 +55,9 @@ class CompanyPolicy
      *
      * @return mixed
      */
-    public function update( User $user, Company $company )
+    public function update(User $user, Company $company)
     {
-        return $user->hasPermissionTo( 'update companies' );
+        return $user->hasPermissionTo('update companies');
     }
 
     /**
@@ -68,7 +68,7 @@ class CompanyPolicy
      *
      * @return mixed
      */
-    public function delete( User $user, Company $company )
+    public function delete(User $user, Company $company)
     {
         //
     }
@@ -81,7 +81,7 @@ class CompanyPolicy
      *
      * @return mixed
      */
-    public function restore( User $user, Company $company )
+    public function restore(User $user, Company $company)
     {
         //
     }
@@ -94,7 +94,7 @@ class CompanyPolicy
      *
      * @return mixed
      */
-    public function forceDelete( User $user, Company $company )
+    public function forceDelete(User $user, Company $company)
     {
         //
     }

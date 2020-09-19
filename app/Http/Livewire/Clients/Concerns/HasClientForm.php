@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Clients\Concerns;
 
-
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -23,7 +22,7 @@ trait HasClientForm
         'company_id' => 'nullable|integer|exists:companies,id',
     ];
 
-    protected function getInputs( array $extra = [] ): array
+    protected function getInputs(array $extra = []): array
     {
         $fillable = [
             'first_name' => $this->first_name,
@@ -31,37 +30,36 @@ trait HasClientForm
             'email'      => $this->email,
         ];
 
-        if ( $this->password ) {
-            $fillable['password'] = Hash::make( $this->password );
+        if ($this->password) {
+            $fillable['password'] = Hash::make($this->password);
         }
 
-        return array_merge( $fillable, $extra );
+        return array_merge($fillable, $extra);
     }
 
     public function addClient()
     {
         $this->validate();
 
-        $client = User::create( $this->getInputs() );
-        $client->assignRole( 'client' );
+        $client = User::create($this->getInputs());
+        $client->assignRole('client');
 
-        if ( $this->company_id ) {
-            Company::find( $this->company_id )->update( [
+        if ($this->company_id) {
+            Company::find($this->company_id)->update([
                 'user_id' => $client->id,
-            ] );
+            ]);
         }
 
-        session()->flash( 'success', 'Client added successfully' );
+        session()->flash('success', 'Client added successfully');
         $this->clearInputs();
     }
 
     protected function clearInputs()
     {
         $this->first_name = null;
-        $this->last_name  = null;
-        $this->email      = null;
-        $this->password   = null;
+        $this->last_name = null;
+        $this->email = null;
+        $this->password = null;
         $this->company_id = null;
     }
-
 }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 /**
- * App\Models\Company
+ * App\Models\Company.
  *
  * @property-read \App\Models\Address|null $address
  * @method static \Illuminate\Database\Eloquent\Builder|Company newModelQuery()
@@ -45,11 +45,11 @@ class Company extends Model
 
     public function address(): MorphOne
     {
-        return $this->morphOne( Address::class, 'addressable' );
+        return $this->morphOne(Address::class, 'addressable');
     }
 
     public function owner(): BelongsTo
     {
-        return $this->belongsTo( User::class, 'user_id' );
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -2,10 +2,8 @@
 
 namespace App\Http\Livewire\Companies\Concerns;
 
-
 trait HasCompanyForm
 {
-
     public $zip;
     public $country;
     public $line_2;
@@ -34,43 +32,43 @@ trait HasCompanyForm
         'zip'     => 'required|string|max:256',
     ];
 
-    protected function getCompanyInputs( array $extra = [] ): array
+    protected function getCompanyInputs(array $extra = []): array
     {
-        return array_merge( [
+        return array_merge([
             'name'       => $this->name,
             'website'    => $this->website,
             'phone'      => $this->phone,
             'mobile'     => $this->mobile,
             'vat_number' => $this->vat,
             'terms'      => $this->terms,
-        ], $extra );
+        ], $extra);
     }
 
-    protected function getAddressInputs( array $extra = [] ): array
+    protected function getAddressInputs(array $extra = []): array
     {
-        return array_merge( [
+        return array_merge([
             'street'  => $this->street,
             'line_2'  => $this->line_2,
             'city'    => $this->city,
             'state'   => $this->state,
             'country' => $this->country,
-            'zip'     => $this->zip
-        ], $extra );
+            'zip'     => $this->zip,
+        ], $extra);
     }
 
     protected function clearInputs()
     {
-        $this->zip     = null;
+        $this->zip = null;
         $this->country = null;
-        $this->line_2  = null;
+        $this->line_2 = null;
         $this->website = null;
-        $this->city    = null;
-        $this->terms   = null;
-        $this->phone   = null;
-        $this->street  = null;
-        $this->vat     = null;
-        $this->mobile  = null;
-        $this->name    = null;
-        $this->state   = null;
+        $this->city = null;
+        $this->terms = null;
+        $this->phone = null;
+        $this->street = null;
+        $this->vat = null;
+        $this->mobile = null;
+        $this->name = null;
+        $this->state = null;
     }
 }

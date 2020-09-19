@@ -13,26 +13,26 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create( 'users', function ( Blueprint $table ) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string( 'first_name' );
-            $table->string( 'last_name' );
-            $table->string( 'email' )->unique();
-            $table->timestamp( 'email_verified_at' )->nullable();
-            $table->string( 'password' )->nullable();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password')->nullable();
             $table->rememberToken();
-            $table->string( 'current_company_id' )->nullable();
-            $table->text( 'profile_photo_path' )->nullable();
+            $table->string('current_company_id')->nullable();
+            $table->text('profile_photo_path')->nullable();
             $table->timestamps();
-        } );
+        });
 
         // Full Text Search
-        if ( 'sqlite' !== DB::getDefaultConnection() ) {
-            DB::statement( '
+        if ('sqlite' !== DB::getDefaultConnection()) {
+            DB::statement('
                 create fulltext index users_fulltext_index
                 on users(first_name, last_name, email)
                 with parser ngram
-            ' );
+            ');
         }
     }
 
@@ -43,6 +43,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists( 'users' );
+        Schema::dropIfExists('users');
     }
 }

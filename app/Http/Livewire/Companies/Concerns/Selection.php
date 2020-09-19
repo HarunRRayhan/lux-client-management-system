@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Http\Livewire\Companies\Concerns;
-
 
 use App\Models\Company;
 
@@ -13,19 +11,19 @@ trait Selection
 
     public function confirmSelectedCompaniesDeletion(): void
     {
-        $this->dispatchBrowserEvent( 'confirming-delete-selected-companies' );
+        $this->dispatchBrowserEvent('confirming-delete-selected-companies');
 
         $this->confirmingSelectedCompaniesDeletion = true;
     }
 
     public function deleteSelectedCompanies()
     {
-        if ( $this->checked ) {
-            Company::whereIn( 'id', $this->checked )->delete();
-            session()->flash( 'success', 'Selected comapnies deleted!' );
+        if ($this->checked) {
+            Company::whereIn('id', $this->checked)->delete();
+            session()->flash('success', 'Selected comapnies deleted!');
         }
 
         $this->confirmingSelectedCompaniesDeletion = false;
-        $this->checked                             = [];
+        $this->checked = [];
     }
 }

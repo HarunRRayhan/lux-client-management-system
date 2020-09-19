@@ -9,12 +9,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
- * App\Models\User
+ * App\Models\User.
  *
  * @property int $id
  * @property string $first_name
@@ -126,7 +125,7 @@ class User extends Authenticatable
 
     public function getIsSuperAdminAttribute(): bool
     {
-        return (bool) $this->roles()->where( 'super_admin', true )->count();
+        return (bool) $this->roles()->where('super_admin', true)->count();
     }
 
     /**
@@ -136,19 +135,19 @@ class User extends Authenticatable
      */
     protected function defaultProfilePhotoUrl(): string
     {
-        return 'https://ui-avatars.com/api/?name=' . urlencode( $this->full_name ) . '&color=FFFFFF&background=6875F5';
+        return 'https://ui-avatars.com/api/?name='.urlencode($this->full_name).'&color=FFFFFF&background=6875F5';
     }
 
     /**
-     * Address
+     * Address.
      */
     public function address(): MorphOne
     {
-        return $this->morphOne( Address::class, 'addressable' );
+        return $this->morphOne(Address::class, 'addressable');
     }
 
     public function company(): HasOne
     {
-        return $this->hasOne( Company::class );
+        return $this->hasOne(Company::class);
     }
 }

@@ -16,19 +16,19 @@ class Create extends Component
     {
         $this->validate();
 
-        $company = Company::create( $this->getCompanyInputs() );
-        $address = Address::create( $this->getAddressInputs( [
+        $company = Company::create($this->getCompanyInputs());
+        $address = Address::create($this->getAddressInputs([
             'addressable_type' => Company::class,
             'addressable_id'   => $company->id,
-        ] ) );
+        ]));
 
-        session()->flash( 'success', 'Company added successfully' );
-        $this->emit( 'companyAdded' );
+        session()->flash('success', 'Company added successfully');
+        $this->emit('companyAdded');
         $this->clearInputs();
     }
 
     public function render(): View
     {
-        return view( 'livewire.companies.create' );
+        return view('livewire.companies.create');
     }
 }

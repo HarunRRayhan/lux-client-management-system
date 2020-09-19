@@ -7,19 +7,19 @@ use Illuminate\View\Component;
 class NavMenuItem extends Component
 {
     /**
-     * Name of the menu item
+     * Name of the menu item.
      * @var string
      */
     public string $name;
 
     /**
-     * Route Name
+     * Route Name.
      * @var string
      */
     public string $route;
 
     /**
-     * Icon Name from Icons Directory
+     * Icon Name from Icons Directory.
      *
      * @var string
      */
@@ -32,11 +32,11 @@ class NavMenuItem extends Component
      * @param string $route
      * @param string $icon
      */
-    public function __construct( string $name, string $route, string $icon )
+    public function __construct(string $name, string $route, string $icon)
     {
-        $this->name  = $name;
+        $this->name = $name;
         $this->route = $route;
-        $this->icon  = $icon;
+        $this->icon = $icon;
     }
 
     /**
@@ -46,6 +46,6 @@ class NavMenuItem extends Component
      */
     public function render()
     {
-        return view( 'components.nav.menu-item' );
+        return view('components.nav.menu-item');
     }
 }

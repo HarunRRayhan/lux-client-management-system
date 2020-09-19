@@ -1,40 +1,37 @@
 <?php
 
-
 namespace App\Http\Livewire\Companies\Concerns;
-
 
 use App\Models\Company;
 
 trait Deletion
 {
-
     public bool $confirmingCompanyDeletion = false;
     protected ?Company $deletingCompany = null;
 
-    public function confirmCompanyDeletion( ?Company $company = null ): void
+    public function confirmCompanyDeletion(?Company $company = null): void
     {
         $this->deletingCompany = $company;
 
-        $this->dispatchBrowserEvent( 'confirming-delete-company' );
+        $this->dispatchBrowserEvent('confirming-delete-company');
 
         $this->confirmingCompanyDeletion = true;
     }
 
-    public function deleteCompany( ?Company $company = null )
+    public function deleteCompany(?Company $company = null)
     {
-        $this->deleteAction( $company );
+        $this->deleteAction($company);
     }
 
-    protected function deleteAction( ?Company $company = null )
+    protected function deleteAction(?Company $company = null)
     {
-        if ( $company ) {
+        if ($company) {
             $company->delete();
         }
 
         $this->confirmingCompanyDeletion = false;
-        $this->deletingCompany           = null;
+        $this->deletingCompany = null;
 
-        session()->flash( 'success', 'Company Deleted Successfully' );
+        session()->flash('success', 'Company Deleted Successfully');
     }
 }

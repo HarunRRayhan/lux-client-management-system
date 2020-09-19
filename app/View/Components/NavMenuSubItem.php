@@ -7,13 +7,13 @@ use Illuminate\View\Component;
 class NavMenuSubItem extends Component
 {
     /**
-     * Name of the menu item
+     * Name of the menu item.
      * @var string
      */
     public string $name;
 
     /**
-     * Route Name
+     * Route Name.
      * @var string
      */
     public string $route;
@@ -24,9 +24,9 @@ class NavMenuSubItem extends Component
      * @param string $name
      * @param string $route
      */
-    public function __construct( string $name, string $route )
+    public function __construct(string $name, string $route)
     {
-        $this->name  = $name;
+        $this->name = $name;
         $this->route = $route;
     }
 
@@ -37,6 +37,6 @@ class NavMenuSubItem extends Component
      */
     public function render()
     {
-        return view( 'components.nav.menu-sub-item' );
+        return view('components.nav.menu-sub-item');
     }
 }

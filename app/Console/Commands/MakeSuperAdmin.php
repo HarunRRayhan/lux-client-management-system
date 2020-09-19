@@ -16,7 +16,6 @@ class MakeSuperAdmin extends Command
     protected $signature = 'make:super-admin
     {user : The ID or email of the user}';
 
-
     /**
      * The console command description.
      *
@@ -41,23 +40,23 @@ class MakeSuperAdmin extends Command
      */
     public function handle()
     {
-        $input = $this->argument( 'user' );
-        $user  = User::whereId( $input )->orWhere( 'email', $input )->first();
-        if ( ! $user ) {
-            $this->error( 'Invalid User Provided' );
+        $input = $this->argument('user');
+        $user = User::whereId($input)->orWhere('email', $input)->first();
+        if (! $user) {
+            $this->error('Invalid User Provided');
 
             return 1;
         }
 
-        $superAdminRole = Role::where( 'name', 'super-admin' )->orWhere( 'super_admin', true )->first();
-        if ( ! $superAdminRole ) {
-            $this->error( 'No super admin role found' );
+        $superAdminRole = Role::where('name', 'super-admin')->orWhere('super_admin', true)->first();
+        if (! $superAdminRole) {
+            $this->error('No super admin role found');
 
             return 1;
         }
 
-        $user->assignRole( $superAdminRole );
-        $this->info( "User #{$user->id} made as super admin successfully" );
+        $user->assignRole($superAdminRole);
+        $this->info("User #{$user->id} made as super admin successfully");
 
         return 0;
     }

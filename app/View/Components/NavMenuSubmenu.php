@@ -7,26 +7,26 @@ use Illuminate\View\Component;
 class NavMenuSubmenu extends Component
 {
     /**
-     * Name of the menu item
+     * Name of the menu item.
      * @var string
      */
     public string $name;
 
     /**
-     * Route Name
+     * Route Name.
      * @var string
      */
     public string $route;
 
     /**
-     * Icon Name from Icons Directory
+     * Icon Name from Icons Directory.
      *
      * @var string
      */
     public string $icon;
 
     /**
-     * Active Route Match for auto open/close submenu
+     * Active Route Match for auto open/close submenu.
      *
      * @var string
      */
@@ -40,11 +40,11 @@ class NavMenuSubmenu extends Component
      * @param string $icon
      * @param string $active
      */
-    public function __construct( string $name, string $route, string $icon, string $active )
+    public function __construct(string $name, string $route, string $icon, string $active)
     {
-        $this->name   = $name;
-        $this->route  = $route;
-        $this->icon   = $icon;
+        $this->name = $name;
+        $this->route = $route;
+        $this->icon = $icon;
         $this->active = $active;
     }
 
@@ -55,6 +55,6 @@ class NavMenuSubmenu extends Component
      */
     public function render()
     {
-        return view( 'components.nav.menu-submenu' );
+        return view('components.nav.menu-submenu');
     }
 }

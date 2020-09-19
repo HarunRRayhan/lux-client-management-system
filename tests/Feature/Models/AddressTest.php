@@ -15,6 +15,6 @@ class AddressTest extends TestCase
     public function testCanCreateAddress()
     {
         $address = Address::factory()->create();
-        $this->assertDatabaseHas( 'addresses', [ 'zip' => $address->zip ] );
+        $this->assertDatabaseHas('addresses', ['zip' => $address->zip]);
     }
 }

@@ -21,19 +21,19 @@ class Index extends Component
 
     public function render()
     {
-        return view( 'livewire.clients.index', [
-            'clients'  => User::role( 'client' )
-                              ->with( 'company' )
-                              ->when( $this->search, function ( Builder $query, $search ) {
-                                  $query->selectRaw( '*, match(first_name, last_name, email) against (? in BOOLEAN MODE) as score', [ $search ] )
-                                        ->whereRaw( 'match(first_name, last_name, email) against(? in BOOLEAN MODE)', [ $search ] )
-                                        ->orderBy( 'score', 'desc' );
-                              }, function ( Builder $query ) {
-                                  $query->latest( 'created_at' );
-                              } )->paginate( $this->paginate ),
+        return view('livewire.clients.index', [
+            'clients'  => User::role('client')
+                              ->with('company')
+                              ->when($this->search, function (Builder $query, $search) {
+                                  $query->selectRaw('*, match(first_name, last_name, email) against (? in BOOLEAN MODE) as score', [$search])
+                                        ->whereRaw('match(first_name, last_name, email) against(? in BOOLEAN MODE)', [$search])
+                                        ->orderBy('score', 'desc');
+                              }, function (Builder $query) {
+                                  $query->latest('created_at');
+                              })->paginate($this->paginate),
             'deleting' => $this->deletingClient,
             'checked'  => $this->checked,
             'search'   => $this->search,
-        ] );
+        ]);
     }
 }

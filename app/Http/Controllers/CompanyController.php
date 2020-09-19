@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class CompanyController extends Controller
 {
     public function __construct()
     {
-        $this->authorizeResource( Company::class );
+        $this->authorizeResource(Company::class);
     }
 
     /**
@@ -20,7 +19,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return view( 'company.index' );
+        return view('company.index');
     }
 
     /**
@@ -30,7 +29,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view( 'company.create' );
+        return view('company.create');
     }
 
     /**
@@ -40,7 +39,7 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show( Company $company )
+    public function show(Company $company)
     {
         //
     }
@@ -52,10 +51,10 @@ class CompanyController extends Controller
      *
      * @return View
      */
-    public function edit( Company $company ): View
+    public function edit(Company $company): View
     {
-        return view( 'company.edit', [
-            'company' => $company
-        ] );
+        return view('company.edit', [
+            'company' => $company,
+        ]);
     }
 }

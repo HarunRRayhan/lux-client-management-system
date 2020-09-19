@@ -15,28 +15,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get( '/', function () {
-    return view( 'welcome' );
-} );
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::middleware( [ 'auth:sanctum', 'verified' ] )->group( function () {
-    Route::get( '/dashboard', function () {
-        return view( 'dashboard' );
-    } )->name( 'dashboard' );
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-    Route::resource( '/clients', ClientController::class )
-         ->except( [
+    Route::resource('/clients', ClientController::class)
+         ->except([
              'store',
              'destroy',
-             'update'
-         ] );
+             'update',
+         ]);
 
-    Route::name( 'clients' )
-         ->resource( '/companies', CompanyController::class )
-         ->except( [
+    Route::name('clients')
+         ->resource('/companies', CompanyController::class)
+         ->except([
              'store',
              'destroy',
-             'update'
-         ] );
-} );
-
+             'update',
+         ]);
+});

@@ -15,29 +15,27 @@ class UserSeeder extends Seeder
     public function run()
     {
         $superAdmin = User::factory()
-                          ->create( [
+                          ->create([
                               'email' => 'superadmin@example.com',
-                          ] );
-        $superAdmin->assignRole( 'super-admin' );
+                          ]);
+        $superAdmin->assignRole('super-admin');
 
         $admin = User::factory()
-                     ->create( [
+                     ->create([
                          'email' => 'admin@example.com',
-                     ] );
-        $admin->assignRole( 'admin' );
+                     ]);
+        $admin->assignRole('admin');
 
         $staff = User::factory()
-                     ->create( [
+                     ->create([
                          'email' => 'staff@example.com',
-                     ] );
-        $staff->assignRole( 'staff' );
+                     ]);
+        $staff->assignRole('staff');
 
         $support = User::factory()
-                       ->create( [
+                       ->create([
                            'email' => 'support@example.com',
-                       ] );
-        $support->assignRole( 'support' );
-
-
+                       ]);
+        $support->assignRole('support');
     }
 }

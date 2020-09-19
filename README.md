@@ -1,5 +1,7 @@
 <p align="center">
 <a href="https://github.com/HarunRRayhan/lux-client-management-system"><img src="https://github.com/HarunRRayhan/lux-client-management-system/workflows/Build/badge.svg" alt="Build Status"></a>
+<a href="https://github.styleci.io/repos/294004828?branch=master"><img src="https://github.styleci.io/repos/294004828/shield?branch=master" alt="StyleCI"></a>
+<a href="https://github.com/HarunRRayhan/lux-client-management-system"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
 # Lux - The Ultimate Client Management System

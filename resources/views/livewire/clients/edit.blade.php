@@ -16,7 +16,19 @@
         <x-form.client :companies="$companies"/>
 
         <x-slot name="actions">
-            <button class="flex items-center btn-lux" type="submit">Update Client</button>
+            <div class="w-full flex items-center justify-between">
+                <button
+                    tabindex="-1"
+                    type="button"
+                    class="text-red-600 hover:underline"
+                    wire:click.prevent="confirmClientDeletion({{$client}})"
+                    wire:loading.attr="disabled"
+                >Delete Client
+                </button>
+                <button class="flex items-center btn-lux" type="submit">Update Client</button>
+            </div>
         </x-slot>
     </x-form-section>
+
+    <x-client.list.delete-item :client="$client"/>
 </div>

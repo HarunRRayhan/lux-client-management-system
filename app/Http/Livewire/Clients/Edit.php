@@ -60,6 +60,12 @@ class Edit extends Component
         $this->clearInputs();
     }
 
+    public function deleteClient( ?User $client = null )
+    {
+        $this->deleteAction( $client );
+        $this->redirect( route( 'clients.index' ) );
+    }
+
     protected function setClient(): Edit
     {
         $this->first_name = $this->client->first_name;
@@ -89,4 +95,6 @@ class Edit extends Component
     {
         $this->password = null;
     }
+
+
 }

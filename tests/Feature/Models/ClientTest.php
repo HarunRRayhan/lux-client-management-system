@@ -102,7 +102,7 @@ class ClientTest extends TestCase
         $response->assertStatus( 403 );
     }
 
-    public function testAUserCanSeeAddClientIfHasPermission()
+    public function testUserCanSeeAddClientIfHasPermission()
     {
         $user = User::factory()->create();
         $user->givePermissionTo( 'create users' );
@@ -125,5 +125,69 @@ class ClientTest extends TestCase
         $this->actingAs( $user )
              ->get( route( 'clients.create' ) )
              ->assertSeeLivewire( 'clients.create' );
+    }
+
+    public function testNormalUserCantSeeEditClient()
+    {
+        $user   = User::factory()->create();
+        $client = User::factory()->has( Company::factory()->hasAddress() )->create();
+        $client->assignRole( 'client' );
+        $response = $this->actingAs( $user )->get( route( 'clients.edit', $client ) );
+        $response->assertStatus( 403 );
+    }
+
+    public function testSuperAdminCanSeeEditClientIfHasPermission()
+    {
+        $user = User::factory()->create();
+        $user->assignRole( 'super-admin' );
+        $client = User::factory()->has( Company::factory()->hasAddress() )->create();
+        $client->assignRole( 'client' );
+        $response = $this->actingAs( $user )->get( route( 'clients.edit', $client ) );
+        $response->assertStatus( 200 );
+    }
+
+    public function testUserCanSeeEditClientIfHasPermission()
+    {
+        $user = User::factory()->create();
+        $user->givePermissionTo( 'update users' );
+        $client = User::factory()->has( Company::factory()->hasAddress() )->create();
+        $client->assignRole( 'client' );
+        $response = $this->actingAs( $user )->get( route( 'clients.edit', $client ) );
+        $response->assertStatus( 200 );
+    }
+
+    public function testUserCantSeeEditClientComponent()
+    {
+        $user   = User::factory()->create();
+        $client = User::factory()->has( Company::factory()->hasAddress() )->create();
+        $client->assignRole( 'client' );
+        $this->actingAs( $user )
+             ->get( route( 'clients.edit', $client ) )
+             ->assertDontSeeLivewire( 'clients.edit' );
+    }
+
+    public function testUseCanSeeEditClientComponentIfHasPermission()
+    {
+        $user = User::factory()->create();
+        $user->givePermissionTo( 'update users' );
+        $client = User::factory()->has( Company::factory()->hasAddress() )->create();
+        $client->assignRole( 'client' );
+        $this->actingAs( $user )
+             ->get( route( 'clients.edit', $client ) )
+             ->assertSeeLivewire( 'clients.edit' );
+    }
+
+    public function testSeeClientInEditPage()
+    {
+        $user = User::factory()->create();
+        $user->givePermissionTo( 'update users' );
+        $client = User::factory()->has( Company::factory()->hasAddress() )->create();
+        $client->assignRole( 'client' );
+        $this->actingAs( $user )
+             ->get( route( 'clients.edit', $client ) )
+             ->assertSee( $client->first_name )
+             ->assertSee( $client->email )
+             ->assertSee( $client->last_name )
+             ->assertSee( $client->full_name );
     }
 }

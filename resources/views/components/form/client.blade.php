@@ -63,7 +63,7 @@
                 class="w-full form-select mt-1 @error('company_id') border-red-400 @enderror"
                 wire:model="company_id"
             >
-                <option :value="null" @if (!optional($client)->company) selected @endif>No Company</option>
+                <option value="" @if (!optional($client)->company) selected @endif>No Company</option>
                 @foreach($companies as $company)
                     <option value="{{$company->id}}"
                             @if (optional(optional($client)->company)->id === $company->id) selected @endif

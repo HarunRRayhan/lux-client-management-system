@@ -18,7 +18,7 @@ trait HasClientForm
     protected array $rules = [
         'first_name' => 'required|string|max:256',
         'last_name'  => 'required|string|max:256',
-        'email'      => 'required|email|max:256',
+        'email'      => 'required|unique:users,email|email|max:256',
         'password'   => 'nullable|string|min:8|max:256',
         'company_id' => 'nullable|integer|exists:companies,id',
     ];

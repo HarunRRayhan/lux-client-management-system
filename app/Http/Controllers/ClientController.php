@@ -10,16 +10,19 @@ class ClientController extends Controller
 {
     public function __construct()
     {
-        $this->authorizeResource( User::class );
+//        $this->authorizeResource( User::class );
     }
 
     /**
      * Display a listing of the resource.
      *
      * @return View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index(): View
     {
+        $this->authorize( 'read users' );
+
         return view( 'client.list' );
     }
 
@@ -27,23 +30,15 @@ class ClientController extends Controller
      * Show the form for creating a new resource.
      *
      * @return View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create(): View
     {
+        $this->authorize( 'create users' );
+
         return view( 'client.create' );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store( Request $request )
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -60,37 +55,17 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\User $user
+     * @param User $client
      *
-     * @return \Illuminate\Http\Response
+     * @return View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function edit( User $user )
+    public function edit( User $client )
     {
-        //
-    }
+        $this->authorize( 'update users' );
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\User $user
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function update( Request $request, User $user )
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\User $user
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy( User $user )
-    {
-        //
+        return view( 'client.edit', [
+            'client' => $client
+        ] );
     }
 }

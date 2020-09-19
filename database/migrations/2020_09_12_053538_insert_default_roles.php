@@ -30,7 +30,7 @@ class InsertDefaultRoles extends Migration
         $role0 = Role::create( [ 'name' => 'super-admin', 'super_admin' => true ] );
 
         $role1 = Role::create( [ 'name' => 'admin' ] );
-        $role1->givePermissionTo( 'create users', 'read users', 'update users', 'delete users' );
+        $role1->givePermissionTo( 'create users', 'read users', 'update users', 'delete users', 'read companies', 'create companies', 'update companies', 'delete companies' );
 
         $role2 = Role::create( [ 'name' => 'staff' ] );
         $role2->givePermissionTo( 'create users', 'read users', 'update users', 'delete users' );
